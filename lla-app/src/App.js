@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import $ from 'jquery';
+import './App.css'
+import Header from './components/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      laData : {}
+    };
+  }
+
+  getLAData(){
+    const load = document.getElementById('siteLoading')
+    $.ajax({
+      url: '/laData.json',
+      dataType: 'json',
+      cache: false,
+      success: function(data){
+        this.setState({laData: data});
+        setTimeout(() => {
+          load.outerHTML='';
+        }, 500)
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+        alert(err);
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.getLAData();
+  }
+  render() {
+    return(
+      <div className="App">
+        <Header />
+      </div>
+    )
+  }
 }
 
 export default App;

@@ -1,0 +1,33 @@
+{
+    "main" : {
+        "title" : "The Language Advocate",
+        "founder" : "Morgan Carmody",
+        "motto" : "A Place Where Language News Advocates Can Make a Difference",
+        "location": {
+            "city": "New York",
+            "state": "New York"
+        },
+        "social" : [
+            {
+                "name": "Facebook",
+                "url": "https://www.facebook.com",
+                "className": "fa fa-facebook"
+            },
+            {
+                "name": "Twitter",
+                "url": "https://www.twitter.com",
+                "className": "fa fa-twitter"
+            },
+            {
+                "name": "Instagram",
+                "url": "https://www.instagram.com",
+                "className": "fa fa-instagram"
+            },
+            {
+                "name": "Soundcloud",
+                "url": "https://www.soundcloud.com",
+                "className": "fa fa-soundcloud"
+            }
+        ]
+    }
+}
